@@ -20,10 +20,10 @@ pipeline {
         
         stage('Code Analysis') {
             steps {
-                // Integrate code analysis tool (e.g., SonarQube)
-                // This step might involve running SonarQube scanner
-                // Example:
-                // sh 'sonar-scanner'
+                echo "Integrate code analysis tool (e.g., SonarQube) /n"
+                echo "This step might involve running SonarQube scanner"
+                echo "Example:"
+                echo sh 'sonar-scanner'
             }
         }
         
