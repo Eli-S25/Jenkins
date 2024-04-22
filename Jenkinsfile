@@ -29,7 +29,7 @@ pipeline {
         
         stage('Security Scan') {
             steps {
-                // Perform security scan using OWASP ZAP or SonarQube
+                echo "Perform security scan using OWASP ZAP or SonarQube"
                 // Example:
                 // sh 'owasp-zap -cmd -quickurl http://localhost:8080/myapp'
             }
