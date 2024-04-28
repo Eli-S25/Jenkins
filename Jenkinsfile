@@ -37,7 +37,7 @@ pipeline {
         
         stage('Deploy to Staging') {
             steps {
-                echo Deploy the application to staging server (e.g., AWS EC2)
+                echo "Deploy the application to staging server (e.g., AWS EC2)"
                 echo Example:
                 echo sh 'ansible-playbook deploy-staging.yml'
             }
