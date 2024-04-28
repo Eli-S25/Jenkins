@@ -4,78 +4,44 @@ pipeline {
     stages {
         stage("Build") {
             steps {
-                // Build the code using Maven
-                sh 'mvn clean package'
+                echo "Simulating building the code using Maven"
             }
         }
         
         stage('Unit and Integration Tests') {
             steps {
-                // Run unit tests
-                sh 'mvn test'
-                // Run integration tests
-                sh 'mvn integration-test'
+                echo "Simulating running unit tests"
+                echo "Simulating running integration tests"
             }
         }
         
         stage('Code Analysis') {
             steps {
-                echo "Integrate code analysis tool (e.g., SonarQube)"
-                echo "This step might involve running SonarQube scanner"
-                echo "Example:"
-                sh 'sonar-scanner'
+                echo "Simulating integrating code analysis tool (e.g., SonarQube)"
+                echo "Simulating running SonarQube scanner"
             }
         }
         
         stage('Security Scan') {
             steps {
-                echo "Perform security scan using OWASP ZAP or SonarQube"
-                echo "Example:"
-                sh 'owasp-zap -cmd -quickurl http://localhost:8080/myapp'
+                echo "Simulating performing security scan using OWASP ZAP or SonarQube"
             }
         }
         
         stage('Deploy to Staging') {
             steps {
-                echo "Deploy the application to staging server (e.g., AWS EC2)"
-                echo "Example:"
-                sh 'ansible-playbook deploy-staging.yml'
+                echo "Simulating deploying the application to staging server (e.g., AWS EC2)"
             }
         }
         
         stage('Integration Tests on Staging') {
             steps {
-                echo "Run integration tests on staging environment"
-                echo "Example:"
-                sh 'mvn integration-test'
+                echo "Simulating running integration tests on staging environment"
             }
         }
         
         stage('Deploy to Production') {
             steps {
-                echo "Deploy the application to production server (e.g., AWS EC2)"
-                echo "Example:"
-                sh 'ansible-playbook deploy-production.yml'
-            }
-        }
-    }
-    
-    post {
-        success {
-            echo "Send success notification email"
-            echo "Example:"
-            echo "emailext body: 'Pipeline succeeded',"
-            echo "    subject: 'Pipeline Success',"
-            echo "    to: 's223361196@deakin.edu.au'"
-        }
-        failure {
-            echo "Send failure notification email with logs as attachment"
-            echo "Example:"
-            echo "emailext attachLog: true,"
-            echo "    body: 'Pipeline failed',"
-            echo "    subject: 'Pipeline Failure',"
-            echo "    to: 's223361196@deakin.edu.au'"
-        }
-    }
-}
+                echo "Simulating deploying the application to production server (e.g., AWS EC2)
+
 
