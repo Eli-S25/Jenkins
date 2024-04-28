@@ -20,18 +20,18 @@ pipeline {
         
         stage('Code Analysis') {
             steps {
-                echo "Integrate code analysis tool (e.g., SonarQube) /n"
+                echo "Integrate code analysis tool (e.g., SonarQube)"
                 echo "This step might involve running SonarQube scanner"
-                  echo "Example:"
-               echo sh 'sonar-scanner'
+                echo "Example:"
+                sh 'sonar-scanner'
             }
         }
         
         stage('Security Scan') {
             steps {
                 echo "Perform security scan using OWASP ZAP or SonarQube"
-               echo "Example:"
-                echo sh 'owasp-zap -cmd -quickurl http://localhost:8080/myapp'
+                echo "Example:"
+                sh 'owasp-zap -cmd -quickurl http://localhost:8080/myapp'
             }
         }
         
@@ -39,42 +39,43 @@ pipeline {
             steps {
                 echo "Deploy the application to staging server (e.g., AWS EC2)"
                 echo "Example:"
-                echo sh 'ansible-playbook deploy-staging.yml'
+                sh 'ansible-playbook deploy-staging.yml'
             }
         }
         
         stage('Integration Tests on Staging') {
             steps {
-            echo "Run integration tests on staging environment"
-                echo Example:
-                echo sh 'mvn integration-test'
+                echo "Run integration tests on staging environment"
+                echo "Example:"
+                sh 'mvn integration-test'
             }
         }
         
         stage('Deploy to Production') {
             steps {
                 echo "Deploy the application to production server (e.g., AWS EC2)"
-                echo Example:
-                echo sh 'ansible-playbook deploy-production.yml'
+                echo "Example:"
+                sh 'ansible-playbook deploy-production.yml'
             }
         }
     }
     
     post {
         success {
-            echo Send success notification email
-            echo Example:
-            echo emailext body: "Pipeline succeeded",
-            echo     subject: "Pipeline Success",
-            echo     to: "s223361196@deakin.edu.au"
+            echo "Send success notification email"
+            echo "Example:"
+            echo "emailext body: 'Pipeline succeeded',"
+            echo "    subject: 'Pipeline Success',"
+            echo "    to: 's223361196@deakin.edu.au'"
         }
         failure {
-            echo Send failure notification email with logs as attachment
-            echo Example:
-            echo emailext attachLog: true,
-            echo     body: "Pipeline failed",
-            echo     subject: "Pipeline Failure",
-            echo     to: "s223361196@deakin.edu.au"
+            echo "Send failure notification email with logs as attachment"
+            echo "Example:"
+            echo "emailext attachLog: true,"
+            echo "    body: 'Pipeline failed',"
+            echo "    subject: 'Pipeline Failure',"
+            echo "    to: 's223361196@deakin.edu.au'"
         }
     }
 }
+
