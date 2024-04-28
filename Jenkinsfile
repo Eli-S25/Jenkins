@@ -45,5 +45,6 @@ pipeline {
                 echo "Deploy the application to production server (e.g., AWS EC2)"
             }
         }
+    }
 
-
+    }
