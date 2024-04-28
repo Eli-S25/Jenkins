@@ -30,7 +30,7 @@ pipeline {
         stage('Security Scan') {
             steps {
                 echo "Perform security scan using OWASP ZAP or SonarQube"
-               echo Example:
+               echo "Example:"
                 echo sh 'owasp-zap -cmd -quickurl http://localhost:8080/myapp'
             }
         }
@@ -38,14 +38,14 @@ pipeline {
         stage('Deploy to Staging') {
             steps {
                 echo "Deploy the application to staging server (e.g., AWS EC2)"
-                echo Example:
+                echo "Example:"
                 echo sh 'ansible-playbook deploy-staging.yml'
             }
         }
         
         stage('Integration Tests on Staging') {
             steps {
-            echo Run integration tests on staging environment
+            echo "Run integration tests on staging environment"
                 echo Example:
                 echo sh 'mvn integration-test'
             }
@@ -53,7 +53,7 @@ pipeline {
         
         stage('Deploy to Production') {
             steps {
-                echo Deploy the application to production server (e.g., AWS EC2)
+                echo "Deploy the application to production server (e.g., AWS EC2)"
                 echo Example:
                 echo sh 'ansible-playbook deploy-production.yml'
             }
