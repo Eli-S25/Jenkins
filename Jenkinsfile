@@ -45,6 +45,20 @@ pipeline {
                 echo "Deploy the application to production server (e.g., AWS EC2)"
             }
         }
+         post {
+        success {
+            emailext body: "Pipeline succeeded",
+                subject: "Pipeline Success",
+                to: "elie246na@gmail.com"
+        }
+        failure {
+            emailext attachLog: true,
+                body: "Pipeline failed",
+                subject: "Pipeline Failure",
+                to: "elie246na@gmail.com"
+        }
     }
+    }
+
 
     }
