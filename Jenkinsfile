@@ -45,7 +45,9 @@ pipeline {
                 echo "Deploy the application to production server (e.g., AWS EC2)"
             }
         }
-         post {
+    }
+    
+    post {
         success {
             emailext body: "Pipeline succeeded",
                 subject: "Pipeline Success",
@@ -58,7 +60,5 @@ pipeline {
                 to: "elie246na@gmail.com"
         }
     }
-    }
+}
 
-
-    }
