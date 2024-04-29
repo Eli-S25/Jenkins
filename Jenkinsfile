@@ -49,13 +49,13 @@ pipeline {
     
     post {
         success {
-           mail to: "elie246na@gmail.com
-            subject: "Build Status Email"
+           mail to: "elie246na@gmail.com",
+            subject: "Build Status Email",
             body: "Build was successful"
         }
         failure {
-            mail to: "elie246na@gmail.com
-            subject: "Build Status Email"
+            mail to: "elie246na@gmail.com",
+            subject: "Build Status Email",
             body: "Build was successful"
         }
     }
