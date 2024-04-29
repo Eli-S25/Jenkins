@@ -13,16 +13,18 @@ pipeline {
                 echo "Simulating running unit tests"
                 echo "Simulating running integration tests"
             }
-        post {
-        success {
-           mail to: "elie246na@gmail.com",
-            subject: "Integration test",
-            body: "Integraton test was successful"
-        }
-        failure {
-            mail to: "elie246na@gmail.com",
-            subject: "Integration test",
-            body: "Integration Test has failed"
+            post {
+                success {
+                    mail to: "elie246na@gmail.com",
+                    subject: "Integration test",
+                    body: "Integraton test was successful"
+                }
+                failure {
+                    mail to: "elie246na@gmail.com",
+                    subject: "Integration test",
+                    body: "Integration Test has failed"
+                }
+            }
         }
         
         stage('Code Analysis') {
@@ -36,16 +38,17 @@ pipeline {
             steps {
                 echo "Simulating performing security scan using OWASP ZAP or SonarQube"
             }
-        post {
-        success {
-           mail to: "elie246na@gmail.com",
-            subject: "Security Scan",
-            body: "Security scan was successful"
-        }
-        failure {
-            mail to: "elie246na@gmail.com",
-            subject: "Security scan",
-            body: "Security scan failed"
+            post {
+                success {
+                    mail to: "elie246na@gmail.com",
+                    subject: "Security Scan",
+                    body: "Security scan was successful"
+                }
+                failure {
+                    mail to: "elie246na@gmail.com",
+                    subject: "Security scan",
+                    body: "Security scan failed"
+                }
             }
         }
         
@@ -68,6 +71,4 @@ pipeline {
         }
     }
 }
-        }
-    }
-}
+
